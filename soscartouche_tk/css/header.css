@@ -1,0 +1,51 @@
+header {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+    width: 800px;
+}
+#logo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+nav {
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 15px;
+    width: 550px;
+    height: 45px;
+    font-size: 23px;
+    font-weight: bold;
+    text-align: center;
+    background-color: lightgreen;
+    border-radius: 8px;
+}
+nav ul {
+    height: auto;
+    padding: 8px 0px;
+    margin: 0px;
+}
+nav>ul>li {
+    display: inline;
+    padding: 20px;
+    border-left: 2px solid white;
+    border-right: 2px solid white;
+    margin: 0px;
+}
+nav>ul>li:first-of-type {
+    border-left: none;
+}
+nav>ul>li:last-of-type {
+    border-right: none;
+}
+nav>ul>li:hover {
+    background: white;
+}
+nav>ul>li>a {
+    text-decoration: none;
+    color: green;
+    padding: 8px 8px 8px 8px;
+}
