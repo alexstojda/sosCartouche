@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PublishConfigData" autoUpload="Always" promptOnRemoteOverwrite="CHECK_CONTENT" serverName="teambana.com - SysDev">
+    <serverData>
+      <paths name="teambana.com - SysDev">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/public_html/soscartouche_tk" local="$PROJECT_DIR$/soscartouche_tk" web="/" />
+            <mapping deploy="/public_html/includes" local="$PROJECT_DIR$/includes" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+    </serverData>
+    <option name="myAutoUpload" value="ALWAYS" />
+  </component>
+</project>
