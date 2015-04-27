@@ -1,8 +1,17 @@
 <?php
-    $user_name = "yellow";
-    $password = "sysdev";
-    $database = "yellow_sysdev";
-    $server = "localhost";
 
-    $db_handle = mysql_connect($server, $user_name, $password);
-    $db_found = mysql_select_db($database, $db_handle);
+    $dsn = 'mysql:dbname=yellow_sysdev;host=localhost';
+    $dbuser = 'yellow';
+    $password = 'sysdev';
+    $bdd = null;
+
+    try
+    {
+        $bdd = new PDO($dsn,$dbuser,$password);
+        $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    }
+    catch (PDOException $e)
+    {
+        echo 'Could not connect to db: ' . $e->getMessage();
+        exit;
+    }

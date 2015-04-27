@@ -1,12 +1,15 @@
 body {
     font-family: Lucida;
+    z-index: 0;
+
 }
 main {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 1200px;
-    border: lightgreen solid 10px;
+    width: 650px;
+    border:  #69BA64 solid 10px;
     border-radius: 20px;
     padding: 15px;
+
 }
