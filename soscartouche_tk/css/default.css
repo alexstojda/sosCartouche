@@ -1,0 +1,46 @@
+/*
+	 * Arunraj Adlee
+	 * Date: 24/04/2015
+	 * Time: 5:30 PM
+	*/
+
+
+.Content  {
+	font: 100% Lucida Sans Unicode;
+
+}
+
+/* The three buttons*/
+input[type="submit"]{
+	font: 100% Lucida Sans Unicode;
+	 padding: 200px 30px 8px 27px;
+	 border: 1px solid #666;
+	 color:#000;
+	 text-decoration:none;
+	 font-size: 21px;
+	 background-color: #69BA64;
+	 color: #FFFFFF;
+	 border-color: white;
+	 outline-style:none;
+	 margin-right: 30px;
+	 font-weight:bold;
+	 
+}
+
+#invoice{
+	padding: 200px 45px 8px 40px;
+}
+
+#invoice:hover,#inventory:hover,#userinfo:hover{
+ background-color: #1A6A1E;
+}
+
+
+footer {
+
+	}
+
+
+	
+	
+

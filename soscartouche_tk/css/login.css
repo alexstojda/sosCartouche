@@ -1,0 +1,65 @@
+/*
+	 * Arunraj Adlee
+	 * Date: 24/04/2015
+	 * Time: 3:30 PM
+	*/
+
+
+#submitrow{
+padding-top: 20px;
+text-align: center;
+}
+
+.Content  {
+	font: 100% Lucida Sans Unicode;
+	font-size: 21px;
+	color: #9C9F9B;
+}
+
+label{
+margin-right: 35px;
+}
+
+label, input {
+margin-bottom: 30px;
+}
+
+label[for=pass]
+{
+margin-right:40px;
+}
+
+/* Button Submit*/
+#submit{
+ padding: 8px 8px 8px 8px;
+  border: 1px solid #666;
+  color:#000;
+  text-decoration:none;
+  border-radius: 10px;
+  font-size: 22px;
+  background-color: #69BA64;
+  color: #FFFFFF;
+  border-color: white;
+ outline-style:none;
+ 
+}
+
+#submit:hover{
+ background-color: #1A6A1E;
+}
+
+a{
+color:#9C9F9B;
+outline: 0;
+font-size:16px;
+text-decoration:none;
+}
+
+#loading {
+    display: none;
+}
+
+
+	
+	
+
