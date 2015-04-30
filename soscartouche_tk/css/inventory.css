@@ -4,39 +4,19 @@
 * Time: 11:57 PM
 */
 
-main {
-	font: Lucida Sans;
-}
-
 h1 {
 	font-size: 30px;	
 	color: #8f8e8e;
-	display: block;
-	float: left;
 	font-weight: 800;
 }
 
 h2 {
 	font-size: 24px;	
 	color: #8f8e8e;
-	clear: left;
-	display: block;
-	float: left;
-}
-
-#add {
-	background-color: #75b264;
-	color: white;
-	display: block;
-	float: right;
-	font-size: 24px;
-	font-weight: 600;
-	border-radius: 10px;
 }
 
 table {
-	border-color: #d6d6d6;
-	border-width: 1px;
+	border: solid 1px #d6d6d6;
 	clear: left;
 	width: 100%;
 }
@@ -44,12 +24,12 @@ table {
 th {
 	background-color: #75b264;
 	color: #FFF;
-	font-size: 24px;
+	font-size: 20px;
+    font-weight: 200;
 }
 
-#inventoryList tr:first-child {
-	background-color: #75b264;
-	color: #FFFFFF;
+table tr {
+    border-bottom: 5px solid grey;
 }
 
 footer {
@@ -61,7 +41,6 @@ footer {
 	font-weight: 600;
 	text-align: center;
 	bottom: 0;
-	margin: 0px auto;
 }
 
 footer div {
@@ -71,3 +50,16 @@ footer div {
 	padding-left: 3%;
 	padding-right: 3%;
 }
+
+#filters {
+    margin-bottom: 20px;
+}
+#itemCode {
+    width: 75px;
+}
+#pages {
+    text-align: center;
+    width: 130px;
+    float: right;
+}
+

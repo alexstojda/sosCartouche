@@ -10,13 +10,28 @@
     <link rel="stylesheet" type="text/css" href="css/header.css" />
 </head>
 <header>
+    <?php if(isset($_SESSION['clerkID'])) {?>
+    <aside id="logout">
+        <a href="index.php?logout=1">Log Out</a>
+    </aside>
+    <?php } ?>
     <img id="logo" alt="Logo" src="images/logo.png" height="200" />
     <nav>
-        <ul>
-            <li><a href=#>Link 1</a></li>
-            <li><a href=#>Link 2</a></li>
-            <li><a href=#>Link 3</a></li>
-            <li><a href=#>Link 4</a></li>
-        </ul>
+        <?php if (!isset($_SESSION['clerkID']) ) {?>
+            <p>Please login to access these features</p>
+        <?php } else if ($_SESSION['clerkID'] == 0) {?>
+            <ul>
+                <li><a href="inventory.php">Inventory</a></li>
+                <li><a href="invoice.php">Invoice</a></li>
+                <li><a href="userManagement.php">Users</a></li>
+                <li><a href="userinfo.php">My Account</a></li>
+            </ul>
+        <?php } else { ?>
+            <ul>
+                <li><a href="inventory.php">Inventory</a></li>
+                <li><a href="invoice.php">Invoice</a></li>
+                <li><a href="userinfo.php">My Account</a></li>
+            </ul>
+        <?php } ?>
     </nav>
 </header>

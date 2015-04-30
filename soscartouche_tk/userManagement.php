@@ -20,7 +20,7 @@
             <form action="addUser.php">
             	<input type="submit" name="add" id="add" value="Add User">
             </form>
-            <table name="users" id="users">
+            <table id="users">
             	<tr>
                 	<th>Order</th>
                     <th>User ID</th>

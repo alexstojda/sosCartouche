@@ -7,9 +7,9 @@ main {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 650px;
+    min-width: 850px;
+    max-width: 1200px;
     border:  #69BA64 solid 10px;
     border-radius: 20px;
     padding: 15px;
-
 }

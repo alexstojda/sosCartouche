@@ -1,3 +1,21 @@
+<?php
+session_start();
+if(!isset($_SESSION['clerkID'])){
+    header("Location: /index.php?error=1");
+}
+
+
+
+$typeString = '';
+switch($_SESSION['clerkType']){
+    case 0:
+        $typeString = "Manager";
+        break;
+    case 1;
+        $typeString = "Clerk";
+}
+
+?>
 <!DOCTYPE html>
 <html>
 
@@ -22,41 +40,54 @@
  <main>
 
 <div id="mainContent" align="center">
-<p>
+    <?php
+        if(isset($_GET['error'])) {
+            $error = null;
+            switch($_GET['error']) {
+                case 1:
+                    $error = "You are not authorized to access that function";
+                    break;
+            }
+            print "<h3 id='error'>".$error."</h3>";
+        }
+    ?>
 	<table class="Content" >
 			<tr>
-				<td colspan=2>
-				<h2>Welcome, Employee<!-- USERNAME HERE --> <h2>
-				</td>
-			</tr>
-			
-			<tr>
-				<td id = "submitrow">
-					<div class="row">
-					<form action="Inventory.php"><!-- Opens inventory page -->
-						<input type="submit"   id="inventory" value="Inventory"  />
-						</form>
-					</div>
-				</td>
-				<td id = "submitrow">
-					<div class="row">
-					<form action="Invoice.php"><!-- Opens invoice page -->
-						<input type="submit"  id="invoice" value="Invoice"  />
-						</form>
-					</div>
-				</td>
-				<td id = "submitrow">
-					<div class="row">
-					<form action="UserInfo.php"><!-- Opens userinfo page -->
-						<input type="submit"  id="userinfo" value="User Info"  />
-						</form>
-					</div>
+				<td colspan=3>
+				<h2>Welcome, <?php echo $_SESSION['firstName']." (".$typeString.")"?> <h2>
 				</td>
 			</tr>
 
-		</form>
+        <?php if ($_SESSION['clerkType'] == 0) {?>
+			<tr id="links">
+				<td>
+                    <a class="link" href="inventory.php">Inventory</a>
+				</td>
+				<td>
+                    <a class="link" href="invoice.php">Invoice</a>
+				</td>
+				<td>
+					<a class="link" href="userManagement.php">Users</a>
+				</td>
+                <td>
+                    <a class="link" href="userinfo.php">My Account</a>
+                </td>
+			</tr>
+        <?php } else {?>
+            <tr id="links">
+                <td>
+                    <a class="link" href="inventory.php">Inventory</a>
+                </td>
+                <td>
+                    <a class="link" href="invoice.php">Invoice</a>
+                </td>
+                <td>
+                    <a class="link" href="userinfo.php">My Account</a>
+                </td>
+            </tr>
+        <?php } ?>
+
 		</table>
-		</p>
 		</div>
         </main>
     </body>

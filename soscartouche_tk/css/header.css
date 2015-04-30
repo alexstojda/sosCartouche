@@ -5,19 +5,35 @@ header {
     margin-bottom: 20px;
     width: 800px;
 }
+
+#logout {
+    margin-left: auto;
+    width: 75px;
+    background-color: #333333;
+    text-align: center;
+    padding: 7px;
+    border-radius: 5px;
+}
+aside>a {
+    text-decoration: none;
+    color: white;
+}
 #logo {
     display: block;
     margin-left: auto;
     margin-right: auto;
 }
+
 nav {
+
+    line-height: 45px;
     display: block;
     margin-right: auto;
     margin-left: auto;
     margin-top: 15px;
     width: 550px;
     height: 45px;
-    font-size: 23px;
+    font-size: 17px;
     font-weight: bold;
     text-align: center;
     background-color: lightgreen;
@@ -25,15 +41,15 @@ nav {
 }
 nav ul {
     height: auto;
-    padding: 8px 0px;
-    margin: 0px;
+    padding: 0;
+    margin: 0;
 }
 nav>ul>li {
     display: inline;
     padding: 20px;
     border-left: 2px solid white;
     border-right: 2px solid white;
-    margin: 0px;
+    margin: 0;
 }
 nav>ul>li:first-of-type {
     border-left: none;

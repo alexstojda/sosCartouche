@@ -32,14 +32,12 @@ margin-right:40px;
 /* Button Submit*/
 #submit{
  padding: 8px 8px 8px 8px;
-  border: 1px solid #666;
-  color:#000;
+  border: 1px solid white;
+    color: #FFFFFF;
   text-decoration:none;
   border-radius: 10px;
   font-size: 22px;
   background-color: #69BA64;
-  color: #FFFFFF;
-  border-color: white;
  outline-style:none;
  
 }
@@ -48,7 +46,7 @@ margin-right:40px;
  background-color: #1A6A1E;
 }
 
-a{
+main a{
 color:#9C9F9B;
 outline: 0;
 font-size:16px;
