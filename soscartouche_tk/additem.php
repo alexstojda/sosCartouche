@@ -20,14 +20,14 @@ if (isset($_POST['edit'])) {
 } else if (isset($_POST['editItem'])) {
 
     if(!updateItem($bdd, $_POST['code'], $_POST['price'], $_POST['description'], $_POST['compatibility'], $_POST['color'], $_POST['quantity']))
-        echo "I fucked up mom.";
+        echo "Error. Item not added.";
     else
         header("Location: /inventory.php?updatedItem=1");
 
 } else if (isset($_POST['addItem'])) {
 
     if(!addItem($bdd, $_POST['code'], $_POST['price'], $_POST['description'], $_POST['compatibility'], $_POST['color'], $_POST['quantity']))
-        echo "I fucked up mom.";
+        echo "Error. Item not added.";
     else
         header("Location: /inventory.php?addedItem=1");
 }

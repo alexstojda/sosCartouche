@@ -130,7 +130,18 @@
                         <a href="inventory.php?page=<?php echo ceil(count($result)/$perPage); ?>#results">>></a>
                     <?php } ?>
                 </div>
+            <?php }
+            if($_SESSION['clerkType'] == 0) { ?>
+                <form method="post">
+                    <input type="submit" formaction="additem.php" value="Add New Item">
+                    <?php
+                        if($loadItems) {
+                            echo "<input type='submit' formaction='/report/inventoryReport.php'  value='Print Report of this query' formtarget='_blank'>";
+                        }
+                    ?>
+                </form>
             <?php } ?>
+
             <h4><?php print $errorMsg; ?></h4>
             <?php if(!$loadItems) print "<h3 id='noItems'>No query has been executed, use the above options to execute a search.</h3>"; ?>
         </main>

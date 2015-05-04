@@ -67,7 +67,7 @@ switch($_SESSION['clerkType']){
                     <a class="link" href="invoice.php">Invoice</a>
 				</td>
 				<td>
-					<a class="link" href="userManagement.php">Users</a>
+					<a class="link" href="users.php">Users</a>
 				</td>
                 <td>
                     <a class="link" href="userinfo.php">My Account</a>

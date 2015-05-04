@@ -97,13 +97,13 @@
             <table class="Content" >
                 <tr>
                     <td>
-                        <label for="userName">Username</label>
+                        <label for="userName">ClerkID</label>
                         <input id="userName" class="input" name="userName" type="text" value="" size="20"
                             onfocus="(this.value == 'Please fill out all fields') && (this.value = '')"
                             />
                         <br />
                             <label for="password">Password</label>
-                            <input id="password" class="input" name="password" type="text" value="" size="20"
+                            <input type="password" id="password" class="input" name="password" type="text" value="" size="20"
                             onfocus="(this.value == 'Please fill out all fields') && (this.value = '')"
                                 />
                         <br />

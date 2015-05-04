@@ -96,6 +96,12 @@ function getItems($bdd, $type, $company, $color) {
     }
 }
 
+/**
+ * Get item that matches the given item number
+ * @param $bdd
+ * @param $number
+ * @return null
+ */
 function getItemByNumber($bdd, $number) {
     if ($number == null) {
         return null;
@@ -157,12 +163,98 @@ function deleteItem($bdd, $itemNumber) {
     }
 }
 
+/**
+ * Adds new item to database
+ * @param $bdd PDO database to add item to
+ * @param $code string the new item's code
+ * @param $price float the new item's price
+ * @param $description string the new item's description
+ * @param $compatibility string the new item's compatible equivalent
+ * @param $color string the new item's color
+ * @param $quantity int the new item's quantity
+ * @return boolean True if successful, False otherwise
+ */
 function addItem($bdd, $code, $price, $description, $compatibility, $color, $quantity){
     $query = $bdd->prepare("INSERT INTO item (code, price, description, compatibility, color, quantity) VALUES(:code, :price, :description, :compatibility, :color, :quantity)");
     return $query->execute(array('code' => $code, 'price' => $price, 'description' => $description, 'compatibility' => $compatibility, 'color' => $color, 'quantity' => $quantity) );
 }
 
+/**
+ * Adds new item to database
+ * @param $bdd PDO database to update the item in
+ * @param $code string the item's code
+ * @param $price float the updated item's price
+ * @param $description string the updated item's description
+ * @param $compatibility string the updated item's compatible equivalent
+ * @param $color string the updated item's color
+ * @param $quantity int the updated item's quantity
+ * @return boolean True if successful, False otherwise
+ */
 function updateItem($bdd, $code, $price, $description, $compatibility, $color, $quantity){
     $query = $bdd->prepare("UPDATE item SET price=:price, description=:description, compatibility=:compatibility, color=:color, quantity=:quantity WHERE code=:code");
     return $query->execute(array('code' => $code, 'price' => $price, 'description' => $description, 'compatibility' => $compatibility, 'color' => $color, 'quantity' => $quantity) );
+}
+
+function getAllUsers($bdd) {
+    $query = $bdd->prepare("SELECT * FROM clerk");
+    $query->execute();
+
+    if($query->rowCount() == 0){
+        return null;
+    }
+    else
+        return $query->fetchAll();
+}
+
+function getUserByLastName($bdd, $lName){
+    $query = $bdd->prepare("SELECT * FROM clerk WHERE UPPER(lastName)=UPPER(:lName)");
+    $query->execute(array('lName' => $lName));
+
+    if($query->rowCount() == 0){
+        return null;
+    }
+    else
+        return $query->fetchAll();
+}
+
+function getUserByID($bdd, $id) {
+    $query = $bdd->prepare("SELECT * FROM clerk WHERE clerkID=:ID");
+    $query->execute(array('ID' => $id));
+
+    if($query->rowCount() == 0 || $query->fetch(PDO::FETCH_ASSOC)['clerkID'] != $id ){
+        return null;
+    }
+    else
+        return $query->fetch(PDO::FETCH_ASSOC);
+}
+
+function getUserByType($bdd, $type){
+    $query = $bdd->prepare("SELECT * FROM clerk WHERE clerkType=:clerkType");
+    $query->execute(array('clerkType' => $type));
+
+    if($query->rowCount() == 0){
+        return null;
+    }
+    else
+        return $query->fetchAll();
+}
+
+function addUser($bdd, $clerkID, $password, $clerkType, $firstName, $lastName, $hireDate){
+    if(getUserByID($bdd, 0) != null)
+        return 1;
+    $query = $bdd->prepare("INSERT INTO clerk (clerkID, password, clerkType, firstName, lastName, hireDate) VALUES (:clerkID, :password, :clerkType, :firstName, :lastName, :hireDate)");
+    if($query->execute(array('clerkID' => $clerkID, 'password' => $password, 'clerkType' => $clerkType, 'firstName' => $firstName, 'lastName' => $lastName, 'hireDate' => $hireDate)))
+        return 0;
+    else
+        return 2;
+}
+
+function updateUser($bdd, $ID, $password, $clerkType, $firstName, $lastName){
+    $query = $bdd->prepare("UPDATE clerk SET password=:password, clerkType=:clerkType, firstName=:firstName, lastName=:lastName WHERE clerkID=:ID");
+    return $query->execute(array('ID' => $ID, 'password' => $password, 'clerkType' => $clerkType, 'firstName' => $firstName, 'lastName' => $lastName));
+}
+
+function deleteUser($bdd, $ID) {
+    $query = $bdd->prepare("DELETE FROM clerk WHERE clerkID=:id");
+    return $query->execute(array('id' => $ID));
 }

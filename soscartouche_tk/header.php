@@ -23,7 +23,7 @@
             <ul>
                 <li><a href="inventory.php">Inventory</a></li>
                 <li><a href="invoice.php">Invoice</a></li>
-                <li><a href="userManagement.php">Users</a></li>
+                <li><a href="users.php">Users</a></li>
                 <li><a href="userinfo.php">My Account</a></li>
             </ul>
         <?php } else { ?>
