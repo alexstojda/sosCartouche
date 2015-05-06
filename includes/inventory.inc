@@ -17,6 +17,32 @@ if(isset($_SESSION['result']) && isset($_GET['page'])) {
     $loadItems = true;
 }
 
+if(isset($_GET['updatedItem'])) {
+    switch($_GET['updatedItem']){
+        case 0:
+            $errorMsg = "Could not update the item. Please verify that all input is valid. Contact technical support should this error persist.";
+            break;
+        case 1:
+            $errorMsg = "Item updated in database.";
+            break;
+        default:
+            $errorMsg = "Undefined updateItem error. Contact technical support for more information.";
+    }
+}
+
+if(isset($_GET['addedItem'])) {
+    switch($_GET['addedItem']) {
+        case 0:
+            $errorMsg = "Could not add item. Please verify that the given itemCode does not already exist in the database.";
+            break;
+        case 1:
+            $errorMsg = "Item added";
+            break;
+        default:
+            $errorMsg = "Undefined addItem error. Contact technical support for more information.";
+    }
+}
+
 if(isset($_GET['error'])){
     switch($_GET['error']) {
         case 0:

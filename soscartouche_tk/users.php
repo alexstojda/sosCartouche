@@ -24,6 +24,9 @@ include '../includes/users.inc';
     <link rel="stylesheet" type="text/css" href="css/mainFrame.css"/>
     <link rel="stylesheet" type="text/css" href="css/users.css"/>
     <link rel="stylesheet" type="text/css" href="css/fonts.css"/>
+    <link rel="icon"
+          type="image/png"
+          href="/images/favicon.ico" />
     <script type="text/javascript">
         function checkPassword() {
             var form = document.getElementById("modifyUser")

@@ -22,6 +22,9 @@
         <link rel="stylesheet" type="text/css" href="css/mainFrame.css" />
         <link rel="stylesheet" type="text/css" href="css/inventory.css" />
         <link rel="stylesheet" type="text/css" href="css/fonts.css" />
+        <link rel="icon"
+              type="image/png"
+              href="/images/favicon.ico" />
 
 
     </head>

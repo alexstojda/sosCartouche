@@ -175,8 +175,14 @@ function deleteItem($bdd, $itemNumber) {
  * @return boolean True if successful, False otherwise
  */
 function addItem($bdd, $code, $price, $description, $compatibility, $color, $quantity){
+
     $query = $bdd->prepare("INSERT INTO item (code, price, description, compatibility, color, quantity) VALUES(:code, :price, :description, :compatibility, :color, :quantity)");
-    return $query->execute(array('code' => $code, 'price' => $price, 'description' => $description, 'compatibility' => $compatibility, 'color' => $color, 'quantity' => $quantity) );
+    try {
+        return $query->execute(array('code' => $code, 'price' => $price, 'description' => $description, 'compatibility' => $compatibility, 'color' => $color, 'quantity' => $quantity));
+    }
+    catch (PDOException $e) {
+        return false;
+    }
 }
 
 /**
@@ -192,7 +198,12 @@ function addItem($bdd, $code, $price, $description, $compatibility, $color, $qua
  */
 function updateItem($bdd, $code, $price, $description, $compatibility, $color, $quantity){
     $query = $bdd->prepare("UPDATE item SET price=:price, description=:description, compatibility=:compatibility, color=:color, quantity=:quantity WHERE code=:code");
-    return $query->execute(array('code' => $code, 'price' => $price, 'description' => $description, 'compatibility' => $compatibility, 'color' => $color, 'quantity' => $quantity) );
+    try {
+        return $query->execute(array('code' => $code, 'price' => $price, 'description' => $description, 'compatibility' => $compatibility, 'color' => $color, 'quantity' => $quantity));
+    }
+    catch (PDOException $e) {
+        return false;
+    }
 }
 
 function getAllUsers($bdd) {
@@ -251,7 +262,12 @@ function addUser($bdd, $clerkID, $password, $clerkType, $firstName, $lastName, $
 
 function updateUser($bdd, $ID, $password, $clerkType, $firstName, $lastName){
     $query = $bdd->prepare("UPDATE clerk SET password=:password, clerkType=:clerkType, firstName=:firstName, lastName=:lastName WHERE clerkID=:ID");
-    return $query->execute(array('ID' => $ID, 'password' => $password, 'clerkType' => $clerkType, 'firstName' => $firstName, 'lastName' => $lastName));
+    try {
+        return $query->execute(array('ID' => $ID, 'password' => $password, 'clerkType' => $clerkType, 'firstName' => $firstName, 'lastName' => $lastName));
+    }
+    catch (PDOException $e) {
+        return false;
+    }
 }
 
 function deleteUser($bdd, $ID) {

@@ -20,14 +20,14 @@ if (isset($_POST['edit'])) {
 } else if (isset($_POST['editItem'])) {
 
     if(!updateItem($bdd, $_POST['code'], $_POST['price'], $_POST['description'], $_POST['compatibility'], $_POST['color'], $_POST['quantity']))
-        echo "Error. Item not added.";
+        header("Location: /inventory.php?updatedItem=0");
     else
         header("Location: /inventory.php?updatedItem=1");
 
 } else if (isset($_POST['addItem'])) {
 
     if(!addItem($bdd, $_POST['code'], $_POST['price'], $_POST['description'], $_POST['compatibility'], $_POST['color'], $_POST['quantity']))
-        echo "Error. Item not added.";
+        header("Location: /inventory.php?addedItem=0");
     else
         header("Location: /inventory.php?addedItem=1");
 }
@@ -43,6 +43,9 @@ if (isset($_POST['edit'])) {
     <link rel="stylesheet" type="text/css" href="css/mainFrame.css"/>
     <link rel="stylesheet" type="text/css" href="css/addItem.css"/>
     <link rel="stylesheet" type="text/css" href="css/fonts.css"/>
+    <link rel="icon"
+          type="image/png"
+          href="/images/favicon.ico" />
     <script type="text/javascript">
         function validateAdd() {
 
@@ -101,7 +104,7 @@ if (isset($_POST['edit'])) {
                                 <label for="code">Code: </label>
                             </td>
                             <td>
-                                <input type="text" id="code" name="code" pattern="([IL]{1}[BCHEDKL]{1}[-])\w+" required>
+                                <input type="text" id="code" name="code" maxlength="15" pattern="([IL]{1}[BCHEDKL]{1}[-])\w+" required>
                             </td>
                         </tr>
                         <tr>
@@ -117,7 +120,7 @@ if (isset($_POST['edit'])) {
                                 <label for="description">Description: </label>
                             </td>
                             <td>
-                                <input type="text" id="description" name="description" required>
+                                <input type="text" id="description" name="description" maxlength="30" required>
                             </td>
                         </tr>
                         <tr>
@@ -125,7 +128,7 @@ if (isset($_POST['edit'])) {
                                 <label for="compatibility">Compatibility: </label>
                             </td>
                             <td>
-                                <input type="text" id="compatibility" name="compatibility">
+                                <input type="text" id="compatibility" maxlength="30" name="compatibility">
                             </td>
                         </tr>
                         <tr>
@@ -133,7 +136,7 @@ if (isset($_POST['edit'])) {
                                 <label for="color">Color: </label>
                             </td>
                             <td>
-                                <input type="text" id="colorAdd" name="color">
+                                <input type="text" id="colorAdd" onblur="validateAdd()" name="color">
                             </td>
                         </tr>
                         <tr>
@@ -175,7 +178,7 @@ if (isset($_POST['edit'])) {
                                     <label for="description">Description: </label>
                                 </td>
                                 <td>
-                                    <input type="text" id="description" name="description" required
+                                    <input type="text" id="description" name="description" maxlength="30" required
                                            value='<?php echo $toEdit['description'] ?>'>
                                 </td>
                             </tr>
@@ -184,7 +187,7 @@ if (isset($_POST['edit'])) {
                                     <label for="compatibility">Compatibility: </label>
                                 </td>
                                 <td>
-                                    <input type="text" id="compatibility" name="compatibility"
+                                    <input type="text" id="compatibility" name="compatibility" maxlength="30"
                                            value='<?php echo $toEdit['compatibility'] ?>'>
                                 </td>
                             </tr>
@@ -194,7 +197,7 @@ if (isset($_POST['edit'])) {
                                 </td>
 
                                 <td>
-                                    <input type="text" id="colorEdit" name="color"
+                                    <input type="text" id="colorEdit" name="color" onblur="validateEdit()"
                                            value='<?php echo $toEdit['color'] ?>'>
                                 </td>
                             </tr>

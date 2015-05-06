@@ -9,7 +9,7 @@
 	font: 100% Lucida Sans Unicode;
 
 }
-table {
+#links {
     border-collapse: separate;
     border-spacing: 20px 0;
 }
@@ -39,6 +39,22 @@ table {
     text-decoration: none;
 }
 
+#summary {
+    margin-top: 50px;
+    text-align: center;
+    border: solid 1px #d6d6d6;
+    table-layout: fixed;
+}
+
+#summary th {
+    background-color: #75b264;
+    color: #FFF;
+    font-size: 20px;
+    font-weight: 200;
+}
+#summary th, td {
+    width: 100px;
+}
 
 
 	

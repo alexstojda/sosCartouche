@@ -44,6 +44,9 @@
 		<link href="css/login.css" rel="stylesheet" type="text/css" />
         <!-- This checks if the user leaves empty fields. Not sure if its really necessary
 				 -->
+        <link rel="icon"
+              type="image/png"
+              href="/images/favicon.ico" />
         <script type="text/javascript">
             function length(field)
             {

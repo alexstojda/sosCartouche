@@ -88,6 +88,33 @@ switch($_SESSION['clerkType']){
         <?php } ?>
 
 		</table>
+        <?php
+        require "../includes/queries.inc";
+        require "../includes/dbconnect.inc";
+            $numOfUsers = count(getAllUsers($bdd));
+            $numOfItems = count(getAllItems($bdd));
+            $numOfLazerItems = count(getItems($bdd, "L", "all", "all"));
+            $numOfInkItems = count(getItems($bdd, "I", "all", "all"));
+        ?>
+        <table id="summary">
+            <tr>
+                <th colspan="4">Database Summary</th>
+            </tr>
+            <tr>
+                <th>Laser Cartridges</th>
+                <td><?php echo $numOfLazerItems; ?></td>
+                <th>Ink Cartridges</th>
+                <td><?php echo $numOfInkItems; ?></td>
+            </tr>
+            <tr>
+               <th colspan="2">Total items</th>
+                <td colspan="2"><?php echo $numOfItems; ?></td>
+            </tr>
+            <tr>
+                <th colspan="2">Users</th>
+                <td colspan="2"><?php echo $numOfUsers; ?></td>
+            </tr>
+        </table>
 		</div>
         </main>
     </body>
